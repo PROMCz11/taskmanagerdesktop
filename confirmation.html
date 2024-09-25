@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm your account</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/new-logo.svg">
+    <script src="confirmation.js" defer></script>
+</head>
+<body class="confirmation">
+    <img src="assets/new-logo.svg" id="logo" alt="">
+    <div id="confirm-instructions">
+        <p>Check your email inbox to confirm your account</p>
+        <img src="assets/sign-up/email-icon.svg" alt="">
+        <input id="code-input" placeholder="Enter the code here..." type="text">
+        <p class="confirmation-hint">(Check the spam folder if you don't find the email)</p>
+        <button id="resend-btn">Resend code</button>
+        <a href="log-in.html">Back to the log in page</a>
+    </div>
+    <div id="confirm-authentication" class="hide">
+        <p>Authenticating</p>
+        <img src="preloader.svg" alt="">
+    </div>
+</body>
+</html>

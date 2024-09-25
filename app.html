@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/new-logo.svg">
+</head>
+<body class="app">
+    <div id="status-display" class="status-display fs-12"></div>
+    <div id="loading-screen">
+        <img src="preloader.svg" alt="">
+    </div>
+    <div class="application hide">
+        <div id="settings-modal-wrapper" class="settings-modal-wrapper hide">
+            <div id="settings-modal">
+                <div>
+                    <p>Account settings</p>
+                    <img id="close-settings-modal-btn" src="assets/app/close-btn-icon.svg" alt="">
+                </div>
+                <div class="settings-modal-grid">
+                    <div class="setting">
+                        <p class="title">Username  <span class="edit-setting-btn edit-setting-btn-userFullname">Edit</span></p>
+                        <p id="setting-display-userFullname" class="setting-display">X</p>
+                    </div>
+                    <div class="setting">
+                        <p class="title">Email  <span class="edit-setting-btn edit-setting-btn-email">Edit</span></p>
+                        <p id="setting-display-email" class="setting-display">X</p>
+                    </div>
+                    <div class="setting">
+                        <p class="title">Password  <span class="edit-setting-btn edit-setting-btn-password">Edit</span></p>
+                        <p id="setting-display-password" class="setting-display">Hidden</p>
+                    </div>
+                    <div class="setting">
+                        <p class="title">Appearance</p>
+                        <div class="appearance-selection-grid">
+                            <div data-appearance-code="1" title="Amber" style="background-color: #FFC107;" class="circle active"></div>
+                            <div data-appearance-code="2" title="Light Blue" style="background-color: #01FFF4;" class="circle"></div>
+                            <div data-appearance-code="3" title="Purple" style="background-color: #8338EC;" class="circle"></div>
+                            <div data-appearance-code="4" title="Pink" style="background-color: #FF1178;" class="circle"></div>
+                            <div data-appearance-code="5" title="Orange" style="background-color: #FB5607;" class="circle"></div>
+                            <div data-appearance-code="6" title="Blue" style="background-color: #3A86FF;" class="circle"></div>
+                            <div data-appearance-code="7" title="Scarlet" style="background-color: #A0153E;" class="circle"></div>
+                            <div data-appearance-code="8" title="Grape" style="background-color: #5D0E41;" class="circle"></div>
+                            <div data-appearance-code="9" title="Baby Pink" style="background-color: #fcb1b1;" class="circle"></div>
+                            <div data-appearance-code="10" title="Silver" style="background-color: #D4D5D9;" class="circle"></div>
+                        </div>
+                    </div>
+                    <div class="setting occupy-full-row">
+                        <p class="title">Automatically delete completed tasks</p>
+                        <input id="setting-display-auto-delete" type="checkbox">
+                    </div>
+                    <div class="setting occupy-full-row">
+                        <button class="button delete-completed-tasks-btn">Delete completed tasks</button>
+                        <button class="button delete-all-tasks-btn">Delete all tasks</button>
+                    </div>
+                    <div class="setting occupy-full-row">
+                        <button class="button delete-account-btn">Delete account</button>
+                    </div>
+                </div>
+                <div class="delete-account-modal hide">
+                    <p>Enter your password to confirm</p>
+                    <input class="confirm-password-input" type="password">
+                    <button class="button confirm-delete-account-btn">Delete Account</button>
+                    <button class="button cancel-delete-account-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div id="side-bar">
+            <div class="logo-container" id="logo-container">
+                <!-- <img style="width: 25px;" src="assets/app/side-bar/logo.svg" alt=""> -->
+                <img style="width: 25px;" src="assets/new-logo.svg" alt="">
+                <p class="fs-20">Task Manager</p>
+            </div>
+            <nav class="tabs">
+                <div id="open-settings-modal-btn" class="tab">
+                    <img style="width: 25px;" src="assets/app/side-bar/settings-icon.svg" alt="">
+                    <p class="fs-16">Settings</p>
+                </div>
+                <button id="log-out-btn">
+                    <img style="width: 20px;" src="assets/app/side-bar/log-out-icon.svg" alt="">
+                    <p class="fs-12">Log out</p>
+                </button>
+            </nav>
+            <div id="connection-status" class="online"><div class="circle"></div><p>Online mode</p></div>
+        </div>
+        <div id="guide" class="fs-12">
+            <div>
+                <img style="width: 16px;" src="assets/app/all-tasks-icon.svg" alt="">
+                <p>All Tasks</p>
+            </div>
+            <div>
+                <div class="circle"></div>
+                <p>Undone</p>
+            </div>
+            <div>
+                <div class="circle"></div>
+                <p>Important</p>
+            </div>
+            <div>
+                <div class="circle"></div>
+                <p>Completed</p>
+            </div>
+        </div>
+        <main>
+            <header>
+                <div>
+                    <p id="first-name-tasks"></p>
+                    <div id="filters">
+                        <img class="all-tasks-filter" style="width: 16px;" src="assets/app/all-tasks-icon.svg" alt="">
+                        <div class="circle undone-tasks-filter active-filter"></div>
+                        <div class="circle important-tasks-filter"></div>
+                        <div class="circle completed-tasks-filter"></div>
+                    </div>
+                </div>
+                <input class="fs-12" id="task-input" type="text" placeholder="Enter a task...">
+            </header>
+            <div class="fs-12" id="task-container">
+                
+            </div>
+        </main>
+
+        <!-- to be deleted -->
+        <div style="position: fixed; bottom: 1rem; right: 1rem; z-index: 10; color: #333333;" id="testing-info">
+            <p style="font-size: .8rem;" id="testing-info__userID"></p>
+            <p>1.11.25</p>
+        </div>
+        <!-- to be deleted -->
+    
+    </div>
+
+    <!-- <div class="animated-grid">
+        
+    </div> -->
+
+    <script src="app.js"></script>
+</body>
+</html>
