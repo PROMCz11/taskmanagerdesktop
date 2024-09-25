@@ -1254,5 +1254,5 @@ const isMobilePlatform = () => {
 };
 
 if(isMobilePlatform()) {
-    window.location.href = `https://svelteinitpractice.pages.dev?authToken=${getAuthTokenFromCookies()}`;
+    window.location.href = `https://task-manager-mobile.pages.dev?authToken=${getAuthTokenFromCookies()}`;
 }
